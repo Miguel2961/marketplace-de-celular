@@ -1,0 +1,205 @@
+/* Boton para modal*/
+.modal {
+  display: inline-block;
+  border-radius: 15px;
+  background: white;
+  color: #fff;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btn img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.btn:hover {
+  background: coral;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  display: block;
+}
+
+/* productos */
+.product-section {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+padding: 20px;
+justify-content: center; /* Centra las tarjetas en la fila */
+align-items: flex-start; /* Alinea las tarjetas al principio del contenedor */
+margin: 0 auto; /* Asegura que el contenedor de productos se centre en el contenedor principal */
+max-width: 1200px; /* Limita el ancho máximo para evitar que las tarjetas se estiren demasiado */
+}
+
+.product-container {
+display: flex;
+flex-direction: column;
+width: calc(25% - 16px); /* 4 tarjetas por línea */
+background: coral;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+border-radius: .5rem;
+overflow: hidden;
+height: 540px;
+position: relative;
+padding: 20px;
+}
+
+.card-img {
+width: 100%;
+height: 55%;
+overflow: hidden;
+position: relative;
+z-index: 1;
+}
+
+.product-image {
+width: 280px;
+height: 300px;
+object-fit: cover;
+transition: transform 0.3s ease, opacity 0.3s ease;
+animation: zoomAnimation 6s infinite ease-in-out;
+}
+
+/* Animación continua para la imagen */
+@keyframes zoomAnimation {
+0% {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+50% {
+  transform: scale(1.1) translateY(-5%);
+  opacity: 0.8;
+}
+100% {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+}
+
+/* Animación de la imagen al pasar el ratón */
+.card-img:hover .product-image {
+transform: scale(1.1) translateY(-10%);
+opacity: 0.8;
+}
+
+.card-info {
+padding: 1em;
+flex-grow: 1;
+color: whitesmoke;
+}
+
+.card-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+
+position: relative;
+z-index: 2;
+}
+
+.card-price {
+font-size: 1.4em;
+font-weight: 700;
+color: whitesmoke;
+}
+
+.card-buttons {
+display: flex;
+gap: 10px;
+}
+
+.btn {
+width: 35px;
+height: 35px;
+padding: 0;
+cursor: pointer;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white;
+border: 1px solid #ccc;
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.action-btn img {
+width: 24px;
+height: 24px;
+}
+
+.action-btn:hover {
+background-color: coral;
+border-color: coral;
+}
+
+/*Text*/
+.text-title {
+font-weight: 900;
+font-size: 1.4em;
+line-height: 1.5;
+}
+
+.text-body {
+font-size: 1em;
+padding-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+.product-container {
+  width: calc(33.33% - 16px); /* 3 tarjetas por línea */
+}
+}
+
+@media (max-width: 900px) {
+.product-container {
+  width: calc(50% - 16px); /* 2 tarjetas por línea */
+}
+}
+
+@media (max-width: 600px) {
+.product-container {
+  width: 100%; /* 1 tarjeta por línea */
+}
+.product-section {
+  justify-content: center; /* Centra las tarjetas en pantallas pequeñas */
+}
+
+.card-footer {
+  flex-direction: column; /* Organiza el precio y botones en columna */
+  align-items: flex-start; /* Alinea los botones al inicio */
+}
+}
+
+@media (max-width: 400px) {
+.card-price {
+  font-size: 1.2em; /* Reducir tamaño del precio */
+}
+
+.text-title {
+  font-size: 1.2em; /* Reducir tamaño del título */
+}
+
+.text-body {
+  font-size: 0.9em; /* Reducir tamaño del texto */
+}
+
+.btn {
+  width: 40px;
+  height: 40px; /* Botones más pequeños en pantallas pequeñas */
+}
+}

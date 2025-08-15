@@ -1,0 +1,14 @@
+<div *ngIf="factura" class="factura-container">
+    <h1>Factura de Pago</h1>
+    <p><strong>Nombre del Titular:</strong> {{ factura.card_holder_name }}</p>
+    <p><strong>Número de Tarjeta:</strong> {{ factura.card_number }}</p>
+    <p><strong>CVV:</strong> {{ factura.cvv }}</p>
+    <p><strong>Fecha de Expiración:</strong> {{ factura.expiration_date }}</p>
+    <p><strong>Información:</strong> {{ factura.informacion }}</p>
+    <p><strong>Valor:</strong> {{ factura.valor }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ factura.fecha_creacion }}</p>
+  
+    <button (click)="descargarFactura()" class="download-button">
+        <img src="../imagenes/icons8-factura-100.png" alt="Descargar Factura">
+    </button>
+</div>

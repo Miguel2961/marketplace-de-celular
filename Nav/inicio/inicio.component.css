@@ -1,0 +1,46 @@
+#descripcion {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: 100%;
+    height: 700px;
+    border-radius: 15px;
+    background: rgba(236, 117, 14, 0.2);
+    color: cornsilk;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.letras {
+    margin: 2% 1%;
+    padding: 2% 5%;
+    background-color: coral;
+    border-radius: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #descripcion {
+        height: auto;  /* Eliminar la altura fija en pantallas pequeñas */
+        padding: 10px;
+        width: 80%;
+    }
+
+    .letras {
+        width: 80%;  /* Hacer el contenido más estrecho */
+        margin: 2% auto;  /* Centrar el contenido */
+        padding: 4% 6%;  /* Ajustar el padding */
+    }
+}
+
+@media (max-width: 480px) {
+    #descripcion {
+        padding: 5%;
+    }
+
+    .letras {
+          /* Ajustar aún más el ancho */
+        padding: 5% 7%;
+    }
+}

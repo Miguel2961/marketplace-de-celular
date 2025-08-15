@@ -1,0 +1,68 @@
+/* Estilos para el contenedor */
+.factura-container {
+    background-color: coral;
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+    color: aliceblue;
+}
+
+/* Estilos para el botón de descarga */
+.download-button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 10px;
+}
+
+.download-button img {
+    width: 120px; /* Aumentar tamaño de la imagen */
+    height: auto;
+}
+
+/* Efecto hover para el botón */
+.download-button:hover {
+    background-color: coral;
+    transform: scale(1.1); /* Aumentar tamaño del botón en hover */
+}
+
+.download-button:hover img {
+    filter: invert(1);
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .factura-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .download-button {
+        padding: 25px;
+    }
+
+    .download-button img {
+        width: 100px; /* Ajustar tamaño de la imagen en pantallas pequeñas */
+    }
+}
+
+/* Estilos para dispositivos móviles (pantallas muy pequeñas) */
+@media (max-width: 480px) {
+    .factura-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .download-button {
+        padding: 30px;
+    }
+
+    .download-button img {
+        width: 80px; /* Ajustar tamaño aún más en pantallas muy pequeñas */
+    }
+}

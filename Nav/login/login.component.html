@@ -1,0 +1,15 @@
+<section>
+  <form class="login wrap" (ngSubmit)="onLogin()" method="post">
+    <div class="h1"><img src="../imagenes/icons8-user-96.png" alt=""></div>
+    <input [(ngModel)]="username" id="username"  name="u" placeholder="Username" required="required"type="text">
+    <input [(ngModel)]="password"  id="password" type="password" name="u" placeholder="Username" required="required">
+    <input value="Login" class="btn" type="submit">
+  </form>
+</section>
+ 
+
+  <!-- <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p> -->
+  
+
+
+

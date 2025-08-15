@@ -1,0 +1,155 @@
+/* Modal General */
+.modal {
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: coral;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+}
+
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 1000; /* Asegura que esté encima de todo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botones */
+.btn {
+    display: inline-block; /* Para comportarse como un bloque ajustable */
+    border-radius: 15px;
+    background: white;
+    color: #fff;
+    padding: 0; /* Elimina cualquier relleno */
+    border: none; /* Asegúrate de que no haya borde adicional */
+    overflow: hidden; /* Asegúrate de que la imagen no se desborde */
+    text-align: center;
+}
+
+.btn img {
+    display: block; /* Asegura que la imagen se ajuste correctamente */
+    height: 100%; /* Ocupa todo el botón */
+    width: 100%; /* Ajusta al ancho completo del botón */
+}
+
+.btn:hover {
+    background: coral;    
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+.ima{
+    height: 20%; /* Ocupa todo el botón */
+    width: 20%;
+}
+/* Botón Cancelar (Secundario) */
+.btn-secondary {
+    background-color: white; /* Fondo blanco */
+    border-color: #e5e5e5; /* Borde gris claro */
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0; /* Efecto hover con fondo gris claro */
+}
+
+
+
+/* Títulos y textos */
+.modal-title {
+    font-weight: bold;
+    color: white; /* Texto blanco para título */
+}
+
+.modal-description {
+    color: white; /* Texto blanco para descripción */
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 1rem 1.5rem;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 1rem ;
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer [class*="btn-"] {
+    margin-left: 0.75rem;
+}
+
+/* Estilo general para los grupos de formulario */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilo de los labels */
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* Estilo para los inputs y textarea */
+  .input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Estilo para la vista previa de la imagen */
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+  }
+  
+  /* imagen subida */
+
+  .image-preview img {
+    max-width: 100px; /* Ancho máximo de la vista previa */
+    max-height: 100px; /* Alto máximo de la vista previa */
+    object-fit: contain; /* Ajusta el contenido para que se vea completo */
+    border: 1px solid #ccc; /* Opcional: borde para resaltar la imagen */
+    border-radius: 5px;
+  }
+  

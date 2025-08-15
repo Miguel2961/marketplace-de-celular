@@ -1,0 +1,158 @@
+header {
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    flex-direction: column;
+    font-weight: 500;
+    background-color: #2c3e50;
+    border-radius: 15px;
+    color: coral;
+    height: 250px;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 100%; /* Hace que el logo ocupe el 100% del ancho disponible */
+    height: auto; /* Mantiene la relación de aspecto original */
+    width: 80px; /* Tamaño inicial para pantallas grandes */
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-inline: 20px;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+a {
+    text-decoration: none;
+    border-radius: 1%;
+    color: coral;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.active {
+    margin: 5px;
+    padding: 5px;
+    background-color: coral;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+.car {
+    height: 30px;
+    width: 30px;
+}
+
+.btn {
+    height: 20px;
+    border-radius: 15px;
+    background: linear-gradient(to right, rgb(108, 108, 245), rgb(242, 102, 51), rgb(242, 217, 51));
+    color: #fff;
+}
+
+.btn:hover {
+    background: linear-gradient(144deg, #1e1e1e, 20%, #1e1e1e 50%, #1e1e1e);
+    color: rgb(255, 255, 255);
+    transition: all 0.4s ease;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For medium screens (tablets) */
+@media (max-width: 1024px) {
+    header {
+        height: auto; /* Allow header to adjust height for smaller screens */
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px; /* Reduce logo size for tablets */
+    }
+
+    ul {
+        flex-direction: row; /* Keep the list items in a horizontal row */
+        justify-content: center; /* Ensure they are centered */
+        align-items: center;
+    }
+
+    li {
+        margin-inline: 10px; /* Reduce the margin between items */
+        margin-top: 0;
+    }
+
+    .btn {
+        font-size: 14px; /* Make the button text a little smaller */
+    }
+}
+
+/* For small screens (smartphones) */
+@media (max-width: 768px) {
+    header {
+        height: auto; /* Allow header to adjust height */
+        padding: 10px;
+    }
+
+    .logo {
+        width: 50px; /* Reduce logo size for smaller screens */
+    }
+
+    ul {
+        flex-direction: row; /* Keep the list items in a horizontal row */
+        justify-content: center; /* Ensure they are centered */
+    }
+
+    li {
+        margin-top: 0; /* Adjust margin for better alignment */
+    }
+
+    .btn {
+        width: auto; /* Allow the button width to be flexible */
+        font-size: 16px; /* Adjust font size for small screens */
+        padding: 10px;
+    }
+}
+
+/* For very small screens (portrait smartphones) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+        height: auto; /* Make the header adjust to content size */
+    }
+
+    .logo {
+        width: 50px; /* Smaller logo for very small screens */
+    }
+
+    ul {
+        flex-direction: row; /* Keep the list items in a horizontal row */
+        justify-content: center; /* Ensure they are centered */
+    }
+
+    li {
+        margin-top: 0; /* Reduce space between list items */
+    }
+
+    .btn {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 12px;
+    }
+
+    .car {
+        width: 25px; /* Smaller car icon for smaller screens */
+        height: 25px;
+    }
+}

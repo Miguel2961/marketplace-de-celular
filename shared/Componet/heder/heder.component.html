@@ -1,0 +1,19 @@
+<header >
+    <img src="../imagenes/Orbitel.png" alt="" class="logo">
+    <h1>{{titule}}</h1>
+
+    <ul class="nav nav-pills">
+     @if (isLoggedIn) {
+      <li class="nav-item"><a routerLink="carrito"  routerLinkActive="active" ><img src="../imagenes/icons8-carrito-de-compras-30.png" alt="" class="car">Carrito</a></li>
+      <li class="nav-item"><a routerLink="productos"  routerLinkActive="active"><img src="../imagenes/icons8-mobile-30.png" alt="" class="car"> Celulares</a></li>
+      <li class="nav-item"><a  (click)="logout()" ><img src="../imagenes/icons8-login-30.png" alt="" class="car"> Logout</a></li>
+
+    }@else {
+      <li class="nav-item"><a routerLink="carrito"  routerLinkActive="active" ><img src="../imagenes/icons8-carrito-de-compras-30.png" alt="" class="car">Carrito</a></li>
+      <li class="nav-item"><a routerLink="inicio"  routerLinkActive="active"><img src="../imagenes/icons8-página-principal-64.png" alt="" class="car"> Inicio</a></li>
+      <li class="nav-item"><a routerLink="productos"  routerLinkActive="active"><img src="../imagenes/icons8-mobile-30.png" alt="" class="car"> Celulares</a></li>
+      <li class="nav-item"><a routerLink="login"  routerLinkActive="active "><img src="../imagenes/icons8-entrar-30.png" alt="" class="car"> Login</a></li>
+
+     }
+     </ul>
+  </header>

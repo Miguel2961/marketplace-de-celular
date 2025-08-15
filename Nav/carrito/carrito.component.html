@@ -1,0 +1,173 @@
+@if(isAuthenticated){
+    <!-- carrito.component.html -->
+    
+<div *ngIf="getCard; else noProducts">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titular</th>
+        <th>fecha de compra</th>
+        <th>número de tarjeta</th>
+        <th>cvv</th>
+        <th>productos</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of getcard">
+        <td>{{ product.card_holder_name }}</td>
+        <td>{{ product.fecha_creacion }}</td>
+        <td>{{ product.card_number}}</td>
+        <td>{{ product.cvv }}</td>
+        <td>{{ product.informacion }}</td>
+        <td>{{ product.valor | currency:'$':'symbol':'1.0-0' }}</td>
+        <td>
+          <button class="btn" (click)="deleteCard(product.card_id)"><img src="../imagenes/icons8-eliminar-30.png" alt="Eliminar" /></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+  
+</div>
+
+<ng-template #noProducts>
+  <p>No hay productos en el carrito.</p>
+</ng-template>
+
+}@else {
+  <div class="product-section" *ngIf="setcard.length > 0; else noProducts">
+    <div class="product-container" *ngFor="let product of setcard">
+      <!-- Imagen del producto -->
+      <div class="card-img">
+        <img [src]="'../imagenes/'+product.marca+'.png'" alt="{{ product.nombre }}" class="product-image" />
+      </div>
+      
+      <!-- Información del producto -->
+      <div class="card-info">
+        <h3 class="text-title">{{ product.nombre }}</h3>
+        <p class="text-body"><strong>Marca:</strong> {{ product.marca }}</p>
+        <p class="text-body"><strong>Información:</strong> {{ product.informacio }}</p>
+        <p class="text-body"><strong>Precio unitario:</strong> {{ product.precio | currency:'$':'symbol':'1.0-0' }}</p>
+        
+        <!-- Cantidad y subtotal -->
+        <div class="card-buttons">
+          <button class="btn decrement-btn" (click)="decrementQuantity(product)">
+            <img src="../imagenes/icons8-menos-30.png" alt="Decrementar">
+          </button>
+          <span class="quantity" >{{product.cantidad}}</span> <!-- El número que se ajustará -->
+          <button class="btn increment-btn" (click)="incrementQuantity(product)">
+            <img src="../imagenes/icons8-más-30.png" alt="Incrementar">
+          </button>
+        </div>
+        
+        
+        <p class="text-body"><strong>Subtotal:</strong> {{ product.precio * product.cantidad | currency:'$':'symbol':'1.0-0' }}</p>
+      </div>
+      
+      <!-- Footer con acciones -->
+      <div class="card-footer">
+        <p class="card-price">Total: {{ product.precio * product.cantidad | currency:'$':'symbol':'1.0-0' }}</p>
+        <button class="btn" (click)="removeFromCart(product.id_celular)">
+          <img src="../imagenes/icons8-eliminar-30.png" alt="Eliminar" />
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mensaje en caso de que no haya productos -->
+  <ng-template #noProducts>
+    <p>No hay productos en tu carrito.</p>
+  </ng-template>
+  
+  
+    <section id="carrito">
+      <form [formGroup]="form" (ngSubmit)="onCard()" class="form">
+        <h3 class="text-title">Total: {{ total | currency:'$':'symbol':'1.0-0' }}</h3>
+        
+        <!-- Nombre completo -->
+        <label for="name" class="label">
+          <span class="title">Nombre completo del titular de la tarjeta</span>
+          <input
+            class="input-field"
+            id="name"
+            formControlName="name"
+            type="text"
+            placeholder="Ingrese nombre completo"
+          />
+          <span *ngIf="form.get('name')?.touched && form.get('name')?.hasError('required')" class="error-message">
+            El nombre es obligatorio.
+          </span>
+        </label>
+        
+        <!-- Número de tarjeta -->
+        <label for="number" class="label">
+          <span class="title">Número de tarjeta</span>
+          <input
+            id="number"
+            formControlName="number"
+            class="input-field"
+            type="text"
+            placeholder="0000 0000 0000 0000"
+            maxlength="16"
+          />
+          <span *ngIf="form.get('number')?.touched && form.get('number')?.hasError('required')" class="error-message">
+            El número de tarjeta es obligatorio.
+          </span>
+          <span *ngIf="form.get('number')?.touched && form.get('number')?.hasError('pattern')" class="error-message">
+            El número de tarjeta debe tener 16 dígitos.
+          </span>
+        </label>
+        
+        <!-- Fecha de vencimiento y CVV -->
+        <div class="split">
+          <label for="ExDate" class="label">
+            <span class="title">Fecha de vencimiento</span>
+            <input
+              id="ExDate"
+              formControlName="expiryDate"
+              class="input-field"
+              type="text"
+              placeholder="MM/AA"
+              maxlength="5"
+            />
+            <span *ngIf="form.get('expiryDate')?.touched && form.get('expiryDate')?.hasError('required')" class="error-message">
+              La fecha de vencimiento es obligatoria.
+            </span>
+            <span *ngIf="form.get('expiryDate')?.touched && form.get('expiryDate')?.hasError('pattern')" class="error-message">
+              Usa el formato MM/DD.
+            </span>
+          </label>
+          <label for="cvv" class="label">
+            <span class="title">CVV</span>
+            <input
+              id="cvv"
+              formControlName="cvv"
+              class="input-field"
+              type="text"
+              placeholder="CVV"
+              maxlength="3"
+            />
+            <span *ngIf="form.get('cvv')?.touched && form.get('cvv')?.hasError('required')" class="error-message">
+              El CVV es obligatorio.
+            </span>
+            <span *ngIf="form.get('cvv')?.touched && form.get('cvv')?.hasError('pattern')" class="error-message">
+              El CVV debe tener exactamente 3 dígitos.
+            </span>
+          </label>
+        </div>
+        
+        <!-- Botón de checkout -->
+        <button class="checkout-btn" type="submit" [disabled]="form.invalid" >Checkout</button>
+      </form>
+      
+      
+      </section>
+      
+    <router-outlet></router-outlet>
+    
+}
+

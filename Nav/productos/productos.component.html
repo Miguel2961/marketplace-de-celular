@@ -1,0 +1,80 @@
+
+    <h2>Productos</h2>
+    
+    @if (isAuthenticated) {
+      <!-- Mostrar contenido dependiendo del estado de autenticación -->
+    
+      <a routerLink="modal"  routerLinkActive="active"  class="modal " [queryParams]="{ mode: 'add' }" ><img src="../imagenes/icons8-agregar-página-web-128.png" alt=""></a>
+      <!-- Contenido para usuarios autenticados -->
+      <p>Bienvenido, puedes acceder a nuestra lista completa de productos.</p>
+      
+      <section class="product-section">
+        
+        @for (item of data; track $index) 
+        {
+          <div class="product-container">
+            <div class="card">
+              <div class="card-img">
+                <img [src]="'../imagenes/'+item.marca+'.png'" src="" alt="{{ item.nombre }}" class="product-image" />
+              </div>
+              <div class="card-info">
+                <p class="text-title">{{ item.nombre }}</p>
+                <p class="text-body">{{ item.informacio }}</p>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <span class="text-title">{{ item.precio | currency:'$':'symbol':'1.0-0'}}</span>
+                </div>
+                <div class="card-buttons">
+                  <button class="btn action-btn" routerLink="modal/{{item.id_celular}}"  routerLinkActive="active">
+                    <img src="../imagenes/icons8-editar-30.png" alt="Modify"    />
+                  </button>
+                  <button class="btn action-btn" (click)="deleteProduct(item.id_celular)">
+                    <img src="../imagenes/icons8-eliminar-30.png" alt="Delete" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+       </section>
+    
+    }@else {
+<!-- Contenido público para usuarios no autenticados -->
+      
+    <section class="product-section">
+        
+      @for (item of data; track $index) 
+      {
+        <div class="product-container">
+          <div class="card">
+            <div class="card-img">
+              <img [src]="'../imagenes/'+item.marca+'.png'" alt="{{ item.nombre }}" class="product-image" />
+            </div>
+            <div class="card-info">
+              <p class="text-title">{{ item.nombre }}</p>
+              <p class="text-body">{{ item.informacio }}</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-price">
+                <span class="text-title">{{ item.precio | currency:'$':'symbol':'1.0-0'}}</span>
+              </div>
+              <div class="card-buttons">
+                <button class="btn action-btn" (click)="addToCart(item.id_celular)"  routerLinkActive="active">
+                  <img src="../imagenes/icons8-carrito-de-compras-30.png" alt="card" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+     </section>
+     
+
+    }
+    
+  
+  
+<router-outlet></router-outlet>
+
+  

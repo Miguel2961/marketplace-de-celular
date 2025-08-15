@@ -1,0 +1,200 @@
+/* From Uiverse.io by MikeAndrewDesigner */
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px;
+  height: 400px;
+  background-image: url(../../../../public/imagenes/celular.gif);
+  background-position: center 60%;
+  background-size: cover; 
+  padding: 47px;
+  padding-bottom: 57px;
+  color: #fff;
+  border-radius: 17px;
+  padding-bottom: 50px;
+  margin: 5%;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  opacity: 1;
+  display: block;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 13px 18px;
+  margin: 20px 0 0 0;
+  font-size: 0.8em;
+  border-radius: 100px;
+  
+}
+
+.login input:focus {
+  animation: bounce 1s;
+  -webkit-appearance: none;
+}
+
+.login input[type=submit],
+.login input[type=button],
+.h1 {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 13px;
+  margin: 40px 0 0 0;
+  border-radius: 500px;
+  font-weight: 600;
+  animation: bounce2 1.6s;
+}
+
+.h1 {
+  padding: 0;
+  position: relative;
+  top: -35px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -0px;
+  font-size: 1.3em;
+}
+
+.btn {
+  background: linear-gradient(to right,rgb(108, 108, 245),rgb(242, 102, 51), rgb(242, 217, 51));
+  color: #fff;
+  padding: 16px !important;
+}
+
+.btn:hover {
+  background: linear-gradient(144deg, #1e1e1e , 20%,#1e1e1e 50%,#1e1e1e );
+  color: rgb(255, 255, 255);
+  padding: 16px !important;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.login input[type=text] {
+  animation: bounce 1s;
+  -webkit-appearance: none;
+}
+
+.login input[type=password] {
+  animation: bounce1 1.3s;
+}
+
+.ui {
+  font-weight: bolder;
+  background: -webkit-linear-gradient(#B563FF, #535EFC, #0EC8EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(0.25turn, #535EFC, #0EC8EE, #0EC8EE);
+  border-image-slice: 1;
+  display: inline;
+}
+
+/* Media Queries para hacer todo responsive */
+@media only screen and (max-width: 1024px) {
+  .login {
+    width: 80%; /* Ajustar el tamaño del formulario en pantallas medianas */
+    padding: 3em;
+  }
+
+  .login input[type="text"],
+  .login input[type="password"] {
+    font-size: 1em; /* Mejorar la legibilidad en pantallas medianas */
+  }
+
+  .h1 {
+    font-size: 1.2em; /* Reducir tamaño de texto en pantallas medianas */
+  }
+
+  .btn {
+    padding: 14px; /* Ajustar el tamaño del botón */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    width: 90%; /* Asegurar que el login ocupe más espacio en pantallas más pequeñas */
+    padding: 2em;
+  }
+
+  .login input[type="text"],
+  .login input[type="password"] {
+    font-size: 0.9em; /* Reducir tamaño de texto */
+  }
+
+  .h1 {
+    font-size: 1.1em; /* Reducir tamaño de texto del título */
+  }
+
+  .btn {
+    padding: 14px; /* Ajustar el tamaño del botón */
+  }
+
+  .login input[type="text"],
+  .login input[type="password"] {
+    padding: 12px 16px; /* Ajustar padding de los inputs */
+  }
+
+  .btn {
+    font-size: 1em; /* Reducir tamaño de texto del botón */
+    padding: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .login {
+    width: 95%; /* Hacer el formulario casi completo en pantallas pequeñas */
+    padding: 1.5em;
+  }
+
+  .login input[type="text"],
+  .login input[type="password"] {
+    font-size: 0.9em;
+  }
+
+  .h1 {
+    font-size: 1em; /* Reducir más el título */
+  }
+
+  .btn {
+    padding: 12px; /* Ajuste de padding en botones */
+  }
+}
+
+/* Animaciones de los inputs y botones */
+@keyframes bounce {
+  0% {
+    transform: translateY(-250px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce1 {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,100 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <a class="btn close" (click)="closeModal()">
+        <img src="../imagenes/icons8-cerrar-ventana-50.png" alt="Cerrar">
+      </a>
+    </div>
+    <form class="modal-body" [formGroup]="form" (ngSubmit)="onProduc()">
+      <!-- Nombre del celular -->
+      <div class="form-group">
+        <label for="phoneName">Nombre del celular:</label>
+        <input 
+          id="phoneName" 
+          type="text" 
+          class="input" 
+          formControlName="name" 
+          placeholder="Ej: iPhone 14" />
+        <div class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+          Nombre es requerido.
+        </div>
+      </div>
+
+      <!-- Información del celular -->
+      <div class="form-group">
+        <label for="phoneInfo">Información del celular:</label>
+        <textarea 
+          id="phoneInfo" 
+          class="input" 
+          formControlName="info" 
+          placeholder="Ej: Pantalla OLED de 6.1 pulgadas, 128 GB de almacenamiento"></textarea>
+        <div class="error" *ngIf="form.get('info')?.touched && form.get('info')?.invalid">
+          Información es requerida.
+        </div>
+      </div>
+
+      <!-- Precio del celular -->
+      <div class="form-group">
+        <label for="phonePrice">Precio del celular:</label>
+        <input 
+          id="phonePrice" 
+          type="number" 
+          class="input" 
+          formControlName="cash" 
+          placeholder="Ej: 3500000" />
+        <div class="error" *ngIf="form.get('cash')?.touched && form.get('cash')?.invalid">
+          Precio es requerido.
+        </div>
+      </div>
+
+      <!-- Marca del celular -->
+      <div class="form-group">
+  <label for="phoneBrand">Marca del celular:</label>
+  <select 
+    id="phoneBrand" 
+    class="input" 
+    formControlName="mark">
+    <option value="" disabled selected>Seleccione una marca</option>
+    <option *ngFor="let brand of phoneBrands" [value]="brand">{{ brand }}</option>
+  </select>
+  <div class="error" *ngIf="form.get('mark')?.touched && form.get('mark')?.invalid">
+    Marca es requerida.
+  </div>
+</div>
+
+
+      <!-- Imagen del celular -->
+      <!--<div class="form-group">
+        <label for="phoneImage">
+          <img src="../imagenes/icons8-imagen-100.png" alt="Cargar imagen" class="btn ima" />
+        </label>
+        <input 
+          id="phoneImage" 
+          type="file" 
+          class="input" 
+          accept="image/*" 
+          style="display: none;" 
+          (change)="onImageSelected($event)" />
+        <div *ngIf="phone.imagePreview" class="image-preview">
+          <img [src]="phone.imagePreview" alt="Vista previa de la imagen" width="150">
+        </div>
+        <div class="error" *ngIf="form.get('image')?.touched && form.get('image')?.invalid">
+          La imagen es requerida.
+        </div>
+      </div>-->
+
+      <!-- Botones -->
+      <div class="modal-footer">
+        <a class="btn" (click)="closeModal()" >
+          <img src="../imagenes/icons8-eliminar-de-la-bandeja-de-entrada-50.png" alt="Cancelar">
+        </a>
+        <button 
+          type="submit" 
+          class="btn" 
+          [disabled]="form.invalid">
+          <img src="../imagenes/icons8-casilla-de-verificación-marcada-48.png" alt="Guardar">
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
