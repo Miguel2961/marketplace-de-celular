@@ -1,0 +1,2 @@
+Maketplace celulare es un proyecto hechoc con angular y Flask, su lenguaje en el CRUD es con python (app.py) y una base de datos en MySQL. El usuario puede agregar al carrito x cantidades de celulares y la cual se pagara por medio de targeta (target).
+El usaurio administradosr agregara y eliminara la cantidad de ceululares que quiera vender poniendo el precio, marca, modelo y descripcion del producto y no solo eso podra ver una lista de quines compran.
